@@ -64,7 +64,7 @@ With our latest data extraction (ETL) in October,
 ### Supplementary
 
 #### Codes
-The Python notebook for cohort identification can be found at in codes folder [here](code/cohort_identification.ipynb).
+The Python notebook for cohort identification can be found at in codes folder [here](codes/cohort_identification.ipynb).
 
 #### Maplist
 The Map list for medications and other indications can be found at in maplist folder [here](maplist/cohort_anti_HT.xlsx).
