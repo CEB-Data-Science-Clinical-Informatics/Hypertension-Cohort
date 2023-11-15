@@ -19,6 +19,10 @@
     - [Codes](#codes)
     - [Maplist](#codes)
     - [Data Request](#data-request) 
+- [Usage](#usage)
+    - [Publications](#publications)
+    - [Conferences](#conferences)
+    - [Competitions](#competitions)
 ---
 
 ## Hypertension Data Warehouse
