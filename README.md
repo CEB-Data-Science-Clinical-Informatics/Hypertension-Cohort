@@ -86,4 +86,4 @@ More details regarding this and other cohorts can be found [here](https://www.ra
 - Teza, H., Pattanaprateep, O., Boonmanunt, S., Thadanipon, K., Limpijankit, T., Pattanateepapon, A., Unwanatham, N., & Thakkinstian, A. (2023). Hypertension and Its Associated Complications: A Thai Real-World Clinical Cohort. Poster session presented at the International Society for Pharmacoeconomics and Outcomes Research (ISPOR) 2023, Boston, MA.
 
 #### Competitions
-- Thailand Health AI Datathon 202
+- Thailand Health AI Datathon 2023
