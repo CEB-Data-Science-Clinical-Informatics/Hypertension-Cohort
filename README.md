@@ -29,6 +29,8 @@
 
 ### 2010-2022 (13 years)
 
+Documentation on cohort identification procedure can be found [here](cohort_identification.md).
+
 #### Data Flow
 
 ![Data Flow](images/dataflow/2010_2022.png)
