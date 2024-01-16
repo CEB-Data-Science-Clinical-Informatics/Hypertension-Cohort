@@ -74,7 +74,7 @@ At Ramathibodi Hospital, each trade product is assigned a unique intra-instituti
 11. Neprolysin Inhibitor
 12. Renin Inhibitor 
 
-Consistent with the 2019 Thai Guidelines on the Treatment of Hypertension (Kunanon et al., [2021](https://doi.org/10.35755/jmedassocthai.2021.10.12199)) , which recommends duotherapy in antihypertensive treatment, the use of combination pills is common at Ramathibodi Hospital. These combination pills often include multiple classes of antihypertensive drugs. A detailed mapping table linking each trade product to the corresponding cohort-specific drug class is available [here](https://github.com/finerbrighterlighter/Hypertension-Cohort/blob/main/maplist/cohort_anti_HT.xlsx). Please note that the Rama Drug Code is not disclosed in the mapping table.
+Consistent with the 2019 Thai Guidelines on the Treatment of Hypertension (Kunanon et al., [2021](https://doi.org/10.35755/jmedassocthai.2021.10.12199)) , which recommends duotherapy in antihypertensive treatment, the use of combination pills is common at Ramathibodi Hospital. These combination pills often include multiple classes of antihypertensive drugs. A detailed mapping table linking each trade product to the corresponding cohort-specific drug class is available [here](https://github.com/CEB-Data-Science-Clinical-Informatics/Hypertension-Cohort/blob/main/maplist/cohort_anti_HT.xlsx). Please note that the Rama Drug Code is not disclosed in the mapping table.
 
 ### Merging
 
@@ -124,4 +124,4 @@ This approach can be summarized as:
 
 All patients, including both diagnoses and inferred diagnoses, were included in the CEB Data Warehouse – Hypertension Theme. The data flow for cohort identification is described in the figure.
 
-![13.5 years Data Warehouse for Hypertension January 2010 to June 2023](https://github.com/finerbrighterlighter/Hypertension-Cohort/blob/main/images/dataflow/2010_202306.png)
+![13.5 years Data Warehouse for Hypertension January 2010 to June 2023](https://github.com/CEB-Data-Science-Clinical-Informatics/Hypertension-Cohort/blob/main/images/dataflow/2010_202306.png)
