@@ -1,7 +1,7 @@
 # Hypertension Cohort Identification
 
 - **Author:** Htun Teza
-- **Date:** 15 January 2024
+- **Date:** 19 January 2024
 
 > [!IMPORTANT]  
 > Please be aware that the information provided here is current as of the date of this documentation. However, it is subject to potential changes or updates in the future.
@@ -96,15 +96,22 @@ For the group of patients who were prescribed antihypertensive medications but d
 
 Patients who were prescribed a single antihypertensive medication, like a beta-blocker, alongside a diagnosis for a corresponding condition, such as hyperthyroidism, were excluded from the hypertension cohort. This exclusion was based on the likelihood that the medication was prescribed for the non-hypertensive condition. To ensure accurate categorization, additional medical histories were extracted for these patients. The table below illustrates the antihypertensive medications and their other common indications, along with the associated ICD-10 codes:
 
-Anti-Hypertensive Medication | Other Indication | ICD-10 Codes
--|-|-
-ACEI | Heart Failure | I50, I501, I509
-Alpha Blocker | Benign Prostatic Hyperplasia | N40, N401, N403
-Alpha II Agonist | Hypertension in pregnancy | O13, O139
-Beta Blocker | Atrial Fibrillation | I48, I480, I482, I489
-Beta Blocker | Hyperthyroidism |E059 
-Calcium Channel Blocker (non-Dihydropyridine) | Arrhythmias | I471, I498, I499, R000, R002, R008
-Neprilysin Inhibitor | Heart Failure | I50, I501, I509
+Anti-Hypertensive Medication | Other Indication | ICD-10 Codes | Gender
+-|-|-|-
+ACEI | Heart Failure | I50, I501, I509 | All
+Alpha Blocker | Benign Prostatic Hyperplasia | N40, N401, N403 | All
+Alpha II Agonist | Hypertension in pregnancy | O13, O139 | All
+Beta Blocker | Atrial Fibrillation | I48, I480, I482, I489 | All
+Beta Blocker | Hyperthyroidism |E059 | All
+Calcium Channel Blocker (non-Dihydropyridine) | Arrhythmias | I471, I498, I499, R000, R002, R008 | All
+Neprilysin Inhibitor | Heart Failure | I50, I501, I509 | All
+Loop diuretics | Heart failure | I50, I501, I509 | All
+K-sparing diuretics | Heart failure | I50, I501, I509 | All
+K-sparing diuretics | Cirrhosis | K74 | All
+K-sparing diuretics | Acne | L70.0, L70.1, L70.5, L70.9 | Female
+K-sparing diuretics | Female pattern hair loss/Androgenetic alopecia | L64.8, L64.9, L65.8 | Female
+
+A detailed mapping table linking each cohort-specific drug class to corresponding other indications is available on the second sheet [here](https://github.com/CEB-Data-Science-Clinical-Informatics/Hypertension-Cohort/blob/main/maplist/cohort_anti_HT.xlsx).
 
 Patients who did not meet these exclusion criteria were considered to have an "inferred diagnosis of Hypertension". For these patients, the date of the first prescription of antihypertensive medication was taken as the date of diagnosis. This approach helped to identify those who might be under-diagnosed or whose diagnosis of hypertension was not documented in their medical records.
 
