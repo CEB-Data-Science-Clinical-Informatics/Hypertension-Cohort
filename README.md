@@ -27,13 +27,13 @@
 
 ## Hypertension Data Warehouse
 
-### 2010-2022 (13 years)
+### 2010-2023 (14 years)
 
-Documentation on cohort identification procedure can be found [here](cohort_identification.md).
+Documentation on cohort identification procedure can be found [here](cohort_identification.md). This process has been peer-reviewed and published [here](https://doi.org/10.3389/fcvm.2023.1170010).
 
 #### Data Flow
 
-![Data Flow](images/dataflow/2010_2022.png)
+![Data Flow](images/dataflow/2010_2023.png)
 
 #### Entity Relationship Diagram
 
