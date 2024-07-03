@@ -136,7 +136,7 @@ All patients, including both diagnoses and inferred diagnoses, were included in 
 
 ## Cohort 1
 
-Only adult patients, defined as those who are exactly 18 years or older on the day of meeting the specified criteria, are included in Cohort 1. Patients who are younger than 18 are excluded from this cohort without exception.
+Only adult patients, who are exactly 18 years or older on the day of meeting the specified criteria, are included in Cohort 1. Patients who are younger than 18 are excluded from this cohort without exception.
 
 ## Cohort 2
 
