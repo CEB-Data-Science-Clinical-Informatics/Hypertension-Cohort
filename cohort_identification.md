@@ -1,7 +1,7 @@
 # Hypertension Cohort Identification
 
 - **Author:** Htun Teza
-- **Date:** 19 January 2024
+- **Date:** 3 July 2024
 
 > [!IMPORTANT]  
 > Please be aware that the information provided here is current as of the date of this documentation. However, it is subject to potential changes or updates in the future.
@@ -18,6 +18,9 @@
     - [Inferred diagnosis of Hypertension](#inferred-diagnosis-of-hypertension)
     - [Instance 2](#instance-2)
 - [Final Cohort](#final-cohort)
+    - [Cohort 1](#cohort-1)
+    - [Cohort 2](#cohort-2)
+    - [Cohort 2b](#cohort-2b) 
 
 ## ETL procedure
 
@@ -127,8 +130,22 @@ This approach can be summarized as:
 
 > In instances where patients were prescribed anti-hypertensive medication but did not have a formal diagnosis of Hypertension recorded, these cases were classified as **inferred diagnosis of Hypertension**, provided at least one medication lacked a corresponding "other indication".
 
-## Final cohort
+# Final cohort
 
-All patients, including both diagnoses and inferred diagnoses, were included in the CEB Data Warehouse – Hypertension Theme. The data flow for cohort identification is described in the figure.
+All patients, including both diagnoses and inferred diagnoses, were included in the CEB Data Warehouse – Hypertension Theme. 
 
-![13.5 years Data Warehouse for Hypertension January 2010 to June 2023](https://github.com/CEB-Data-Science-Clinical-Informatics/Hypertension-Cohort/blob/main/images/dataflow/2010_202306.png)
+## Cohort 1
+
+Only adult patients, defined as those who are exactly 18 years or older on the day of meeting the specified criteria, are included in Cohort 1. Patients who are younger than 18 are excluded from this cohort without exception.
+
+## Cohort 2
+
+Only adult patients who meet the specified criteria during the predefined study period, starting from the year 2010 onwards, are included in Cohort 2. Patients who met the criteria before the year 2010 are excluded from this cohort without exception.
+
+### Cohort 2(b)
+
+Cohort 2(b) is limited to patients with initial complication-free hypertension. Therefore, only adult patients who meet the specified criteria during the predefined study period and have no prior or co-existing complications, such as Chronic Kidney Disease, Coronary Artery Disease, or Stroke, are included in Cohort 2(b). Patients with any history of these complications are excluded from this cohort without exception.
+
+The data flow for each cohort identification is described in the figure.
+
+![14 years Data Warehouse for Hypertension January 2010 to June 2023](https://github.com/CEB-Data-Science-Clinical-Informatics/Hypertension-Cohort/blob/main/images/dataflow/2010_2024.png)
