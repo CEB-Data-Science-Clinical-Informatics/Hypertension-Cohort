@@ -19,7 +19,7 @@
     - [Instance 2](#instance-2)
 - [Final Cohort](#final-cohort)
     - [Cohort 1](#cohort-1)
-    - [Cohort 2](#cohort-2)
+    - [Cohort 2a](#cohort-2a)
     - [Cohort 2b](#cohort-2b) 
 
 ## ETL procedure
@@ -138,11 +138,11 @@ All patients, including both diagnoses and inferred diagnoses, were included in 
 
 Only adult patients, who are exactly 18 years or older on the day of meeting the specified criteria, are included in Cohort 1. Patients who are younger than 18 are excluded from this cohort without exception.
 
-## Cohort 2
+## Cohort 2(a)
 
-Only adult patients who meet the specified criteria during the predefined study period, starting from the year 2010 onwards, are included in Cohort 2. Patients who met the criteria before the year 2010 are excluded from this cohort without exception.
+Only adult patients who meet the specified criteria during the predefined study period, starting from the year 2010 onwards, are included in Cohort 2(a). Patients who met the criteria before the year 2010 are excluded from this cohort without exception.
 
-### Cohort 2(b)
+## Cohort 2(b)
 
 Cohort 2(b) is limited to patients with initial complication-free hypertension. Therefore, only adult patients who meet the specified criteria during the predefined study period and have no prior or co-existing complications, such as Chronic Kidney Disease, Coronary Artery Disease, or Stroke, are included in Cohort 2(b). Patients with any history of these complications are excluded from this cohort without exception.
 
