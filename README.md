@@ -1,11 +1,11 @@
 # Hypertension Data Warehouse
 
 - **Author:** Htun Teza
-- **Date:** 5 March 2024
+- **Date:** 19 November 2024
 
 ## Contents
 - [Hypertension Data Warehouse](#hypertension-data-warehouse)
-  - [2010-2022 (13 years)](#2010-2022-13-years)
+  - [2010-2024/06 (14.5 years)](#2010-202406-145-years)
     - [Data Flow](#data-flow)
     - [Entity Relationship Diagram](#entity-relationship-diagram)
     - [Variables](#variables)
@@ -14,7 +14,7 @@
     - [ETL timeline](#etl-timeline)
   - [Update Summary](#update-summary)
     - [Cohort Update](#cohort-update)
-    - [Hypertension Cohort (13.5 years)](#hypertension-cohort-135-years)
+    - [Hypertension Cohort (14.5 years)](#hypertension-cohort-145-years)
 - [Supplementary](#supplementary)
     - [Codes](#codes)
     - [Maplist](#codes)
@@ -27,20 +27,21 @@
 
 ## Hypertension Data Warehouse
 
-### 2010-2023 (14 years)
+### 2010-2024/06 (14.5 years)
 
 Documentation on cohort identification procedure can be found [here](cohort_identification.md). This process has been peer-reviewed and published [here](https://doi.org/10.3389/fcvm.2023.1170010).
 
 #### Data Flow
 
-![Data Flow](images/dataflow/2010_2023.png)
+![Data Flow](images/dataflow/2010_202406.png)
 
 #### Entity Relationship Diagram
 
-![Entity Relationship Diagram](images/dataflow/ERD_2010_2022.png)
+![Entity Relationship Diagram](images/dataflow/ERD_2010_202406.png)
 
 #### Variables
 
+The complete list of variables can be found [here](https://docs.google.com/spreadsheets/u/1/d/1It8kMRhzvF-0NKo4eS0fkmqhYims3VlJ/edit?usp=sharing&ouid=109222607639327289784&rtpof=true&sd=true).
 ![Variables](images/dataflow/variables_2010_2022.png)
 
 ---
@@ -51,22 +52,20 @@ Documentation on cohort identification procedure can be found [here](cohort_iden
 
 #### ETL timeline
 
-With our latest data extraction (ETL) in February,
+With our latest data extraction (ETL) in October 2024,
 
-- New case update to December 2023 (Bi-Annually)
-- Follow up visits update to December 2023 (Quarterly).
-
-**Remark:** Previous ETL on 10th October 2023. Latest ETL on 15th February 2024.
+- New case update to June 2024 (Bi-Annually)
+- Follow up visits update to September 2024 (Quarterly).
 
 ### Update Summary
 
 #### Cohort Update
 
-![Cohort Update](images/dataflow/update_202312.png)
+![Cohort Update](images/dataflow/update_202406.png)
 
-#### Hypertension Cohort (14 years)
+#### Hypertension Cohort (14.5 years)
 
-![Hypertension Cohort](images/dataflow/2010_2023.png)
+![Hypertension Cohort](images/dataflow/2010_202406.png)
 
 ### Supplementary
 
