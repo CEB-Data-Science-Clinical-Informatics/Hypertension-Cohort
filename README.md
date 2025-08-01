@@ -5,7 +5,7 @@
 
 ## Contents
 - [Hypertension Data Warehouse](#hypertension-data-warehouse)
-  - [2010-2024/06 (14.5 years)](#2010-202406-145-years)
+  - [2010-2024/12 (15 years)](#2010-202412-15-years)
     - [Data Flow](#data-flow)
     - [Entity Relationship Diagram](#entity-relationship-diagram)
     - [Variables](#variables)
@@ -14,7 +14,7 @@
     - [ETL timeline](#etl-timeline)
   - [Update Summary](#update-summary)
     - [Cohort Update](#cohort-update)
-    - [Hypertension Cohort (14.5 years)](#hypertension-cohort-145-years)
+    - [Hypertension Cohort (15 years)](#hypertension-cohort-15-years)
 - [Supplementary](#supplementary)
     - [Codes](#codes)
     - [Maplist](#codes)
@@ -27,13 +27,13 @@
 
 ## Hypertension Data Warehouse
 
-### 2010-2024/06 (14.5 years)
+### 2010-2024/12 (15 years)
 
 Documentation on cohort identification procedure can be found [here](cohort_identification.md). This process has been peer-reviewed and published [here](https://doi.org/10.3389/fcvm.2023.1170010).
 
 #### Data Flow
 
-![Data Flow](images/dataflow/2010_202406.png)
+![Data Flow](images/dataflow/2010_202412.png)
 
 #### Entity Relationship Diagram
 
@@ -52,20 +52,20 @@ The complete list of variables can be found [here](https://docs.google.com/sprea
 
 #### ETL timeline
 
-With our latest data extraction (ETL) in October 2024,
+With our latest data extraction (ETL) in December 2024,
 
-- New case update to June 2024 (Bi-Annually)
-- Follow up visits update to September 2024 (Quarterly).
+- New case update to December 2024 (Bi-Annually)
+- Follow up visits update to December 2024 (Quarterly).
 
 ### Update Summary
 
 #### Cohort Update
 
-![Cohort Update](images/dataflow/update_202406.png)
+![Cohort Update](images/dataflow/update_202412.png)
 
-#### Hypertension Cohort (14.5 years)
+#### Hypertension Cohort (15 years)
 
-![Hypertension Cohort](images/dataflow/2010_202406.png)
+![Hypertension Cohort](images/dataflow/subcohort_202412.png)
 
 ### Supplementary
 
