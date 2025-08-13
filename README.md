@@ -84,6 +84,8 @@ More details regarding this and other cohorts can be found [here](https://www.ra
 ### Usage
 
 #### Publications
+- Limpijankit, V., Sasiprapha, T., Teza, H., Pattanateepapon, A., Siriyotha, S., Boonmanunt, S., Attia, J., & Thakkinstian, A. (2025). Risk Factors for New-Onset Atrial Fibrillation in Thai Adults with Hypertension. *American Journal of Hypertension*
+
 - Teza, H., Boonmanunt, S., Unwanatham, N., Thadanipon, K., Limpijankit, T., Pattanaprateep, O., Pattanateepapon, A., McKay, G. J., Attia, J., & Thakkinstian, A. (2023). Evaluation of transitions from early hypertension to hypertensive chronic kidney disease, coronary artery disease, stroke and mortality: a Thai real-world data cohort. *Frontiers in Cardiovascular Medicine, 10*. https://doi.org/10.3389/fcvm.2023.1170010
 
 #### Conferences

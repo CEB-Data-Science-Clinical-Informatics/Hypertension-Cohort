@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="hypertension-data-warehouse">Hypertension Data Warehouse</h1>
+<ul>
+<li><strong>Author:</strong> Htun Teza</li>
+<li><strong>Date:</strong> 1 August 2025</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#hypertension-data-warehouse">Hypertension Data Warehouse</a>
+<ul>
+<li><a href="#2010-202412-15-years">2010-2024/12 (15 years)</a>
+<ul>
+<li><a href="#data-flow">Data Flow</a></li>
+<li><a href="#entity-relationship-diagram">Entity Relationship Diagram</a></li>
+<li><a href="#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#hypertension-cohort-update">Hypertension cohort update</a>
+<ul>
+<li><a href="#data-warehouse-timeline">Data Warehouse Timeline</a>
+<ul>
+<li><a href="#etl-timeline">ETL timeline</a></li>
+</ul>
+</li>
+<li><a href="#update-summary">Update Summary</a>
+<ul>
+<li><a href="#cohort-update">Cohort Update</a></li>
+<li><a href="#hypertension-cohort-15-years">Hypertension Cohort (15 years)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#supplementary">Supplementary</a>
+<ul>
+<li><a href="#codes">Codes</a></li>
+<li><a href="#codes">Maplist</a></li>
+<li><a href="#data-request">Data Request</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#publications">Publications</a></li>
+<li><a href="#conferences">Conferences</a></li>
+<li><a href="#competitions">Competitions</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="hypertension-data-warehouse">Hypertension Data Warehouse</h2>
+<h3 id="2010-202412-15-years">2010-2024/12 (15 years)</h3>
+<p>Documentation on cohort identification procedure can be found <a href="cohort_identification.md">here</a>. This process has been peer-reviewed and published <a href="https://doi.org/10.3389/fcvm.2023.1170010">here</a>.</p>
+<h4 id="data-flow">Data Flow</h4>
+<p><img src="images/dataflow/2010_202412.png" alt="Data Flow"></p>
+<h4 id="entity-relationship-diagram">Entity Relationship Diagram</h4>
+<p><img src="images/dataflow/ERD_2010_202406.png" alt="Entity Relationship Diagram"></p>
+<h4 id="variables">Variables</h4>
+<p>The complete list of variables can be found <a href="https://docs.google.com/spreadsheets/u/1/d/1It8kMRhzvF-0NKo4eS0fkmqhYims3VlJ/edit?usp=sharing&amp;ouid=109222607639327289784&amp;rtpof=true&amp;sd=true">here</a>.
+<img src="images/dataflow/variables_2010_2022.png" alt="Variables"></p>
+<hr>
+<h2 id="hypertension-cohort-update">Hypertension cohort update</h2>
+<h3 id="data-warehouse-timeline">Data Warehouse Timeline</h3>
+<h4 id="etl-timeline">ETL timeline</h4>
+<p>With our latest data extraction (ETL) in December 2024,</p>
+<ul>
+<li>New case update to December 2024 (Bi-Annually)</li>
+<li>Follow up visits update to December 2024 (Quarterly).</li>
+</ul>
+<h3 id="update-summary">Update Summary</h3>
+<h4 id="cohort-update">Cohort Update</h4>
+<p><img src="images/dataflow/update_202412.png" alt="Cohort Update"></p>
+<h4 id="hypertension-cohort-15-years">Hypertension Cohort (15 years)</h4>
+<p><img src="images/dataflow/subcohort_202412.png" alt="Hypertension Cohort"></p>
+<h3 id="supplementary">Supplementary</h3>
+<h4 id="codes">Codes</h4>
+<p>The Python notebook for cohort identification can be found at in codes folder <a href="codes/cohort_identification.ipynb">here</a>.</p>
+<blockquote>
+<p>[!NOTE]<br>
+As of March 5, 2024, the data preprocessing pipeline is updated to use <a href="https://github.com/pola-rs/polars">Polars</a> instead of Pandas, due to its multi-thread processing prowess.</p>
+</blockquote>
+<h4 id="maplist">Maplist</h4>
+<p>The Map list for medications and other indications can be found at in maplist folder <a href="maplist/cohort_anti_HT.xlsx">here</a>.</p>
+<h4 id="data-request">Data Request</h4>
+<p>More details regarding this and other cohorts can be found <a href="https://www.rama.mahidol.ac.th/ceb/CEBdatawarehouse/Data/HT">here</a> at CEB-RAMA-MU. Data request can be made on the same webpage.</p>
+<h3 id="usage">Usage</h3>
+<h4 id="publications">Publications</h4>
+<ul>
+<li>Teza, H., Boonmanunt, S., Unwanatham, N., Thadanipon, K., Limpijankit, T., Pattanaprateep, O., Pattanateepapon, A., McKay, G. J., Attia, J., &amp; Thakkinstian, A. (2023). Evaluation of transitions from early hypertension to hypertensive chronic kidney disease, coronary artery disease, stroke and mortality: a Thai real-world data cohort. <em>Frontiers in Cardiovascular Medicine, 10</em>. https://doi.org/10.3389/fcvm.2023.1170010</li>
+</ul>
+<h4 id="conferences">Conferences</h4>
+<ul>
+<li>Teza, H., Pattanaprateep, O., Boonmanunt, S., Thadanipon, K., Limpijankit, T., Pattanateepapon, A., Unwanatham, N., &amp; Thakkinstian, A. (2023). Hypertension and Its Associated Complications: A Thai Real-World Clinical Cohort. Poster session presented at the International Society for Pharmacoeconomics and Outcomes Research (ISPOR) 2023, Boston, MA.</li>
+</ul>
+<h4 id="competitions">Competitions</h4>
+<ul>
+<li>Thailand Health AI Datathon 2023</li>
+</ul>
+
+</body>
+</html>
