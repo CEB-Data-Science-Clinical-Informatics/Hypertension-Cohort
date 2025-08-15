@@ -84,7 +84,7 @@ More details regarding this and other cohorts can be found [here](https://www.ra
 ### Usage
 
 #### Publications
-- Limpijankit, V., Sasiprapha, T., Teza, H., Pattanateepapon, A., Siriyotha, S., Boonmanunt, S., Attia, J., & Thakkinstian, A. (2025). Risk Factors for New-Onset Atrial Fibrillation in Thai Adults with Hypertension. *American Journal of Hypertension, hpaf149*. https://doi.org/10.1093/ajh/hpaf149
+- Limpijankit, V., Sasiprapha, T., Teza, H., Pattanateepapon, A., Siriyotha, S., Boonmanunt, S., Attia, J., & Thakkinstian, A. (2025). Factors Associated with New-Onset Atrial Fibrillation in Thai Adults with Hypertension. *American Journal of Hypertension, hpaf149*. https://doi.org/10.1093/ajh/hpaf149
 
 - Wabina, R. S., Looareesuwan, P., Sonsilphong, S., Teza, H., Ponthongmak, W., McKay, G., Attia, J., Pattanateepapon, A., Panitchote, A., & Thakkinstian, A. (2025). Uncertainty-aware approach for multiple imputation using conventional and machine learning models: a real-world data study. *Journal of Big Data, 12, 95*. https://doi.org/10.1186/s40537-025-01136-3
 
