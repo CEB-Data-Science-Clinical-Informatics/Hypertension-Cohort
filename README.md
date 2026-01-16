@@ -84,9 +84,9 @@ More details regarding this and other cohorts can be found [here](https://www.ra
 ### Usage
 
 #### Publications
-- Teza H, Anothaisintawee T, Limpijankit T, Tansawet A, Boonmanunt S, Pattanateepapon A, McKay GJ, Attia J, Thakkinstian A. Incidence and prognosis of apparent-treatment resistant hypertension: a multi-state analysis using real world evidence. Clin Hypertens. 2026 Feb;32:e5. https://doi.org/10.5646/ch.2026.32.e5
+- Teza, H., Anothaisintawee, T., Limpijankit, T., Tansawet, A., Boonmanunt, S., Pattanateepapon, A., McKay, G.J., Attia, J., Thakkinstian, A. (2026) Incidence and prognosis of apparent-treatment resistant hypertension: a multi-state analysis using real world evidence. *Clinical Hypertension, 32:e5*. https://doi.org/10.5646/ch.2026.32.e5
 
-- Limpijankit, V., Sasiprapha, T., Teza, H., Pattanateepapon, A., Siriyotha, S., Boonmanunt, S., Attia, J., & Thakkinstian, A. (2025). Factors Associated With New-Onset Atrial Fibrillation in Thai Adults with Hypertension. American Journal of Hypertension, 38(12), 1076–1087. https://doi.org/10.1093/ajh/hpaf149
+- Limpijankit, V., Sasiprapha, T., Teza, H., Pattanateepapon, A., Siriyotha, S., Boonmanunt, S., Attia, J., & Thakkinstian, A. (2025). Factors Associated With New-Onset Atrial Fibrillation in Thai Adults with Hypertension. *American Journal of Hypertension, 38(12), 1076–1087*. https://doi.org/10.1093/ajh/hpaf149
 
 - Wabina, R. S., Looareesuwan, P., Sonsilphong, S., Teza, H., Ponthongmak, W., McKay, G., Attia, J., Pattanateepapon, A., Panitchote, A., & Thakkinstian, A. (2025). Uncertainty-aware approach for multiple imputation using conventional and machine learning models: a real-world data study. *Journal of Big Data, 12, 95*. https://doi.org/10.1186/s40537-025-01136-3
 
