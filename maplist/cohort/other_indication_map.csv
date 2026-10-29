@@ -1,0 +1,14 @@
+subclass,Other Indications,ICD-10,Gender
+ACEI,Heart failure,"I50, I50.1, I50.9",All
+alpha_blocker,Benign prostate hyperplasia,"N40, N40.1, N40.3",All
+alpha2_agonist,Hypertension in pregnancy,"O13, O13.9",All
+ARB,Heart failure,"I50, I50.1, I50.9",All
+beta_blocker,Hyperthyroidism,E05.9,All
+beta_blocker,Atrial fibrillation,"I48, I48.2, I48.9",All
+CCB_nonDHP,Arrhythmias,"I47.1, I49.8, I49.9, R00.0, R00.2, R00.8",All
+neprilysin_inhibitor,Heart failure,"I50, I50.1, I50.9",All
+Loop diuretics,Heart failure,"I50, I501, I509",All
+K-sparing diuretics,Heart failure,"I50, I501, I509",All
+K-sparing diuretics,Cirrhosis,K74,All
+K-sparing diuretics,Acne,"L70.0, L70.1, L70.5, L70.9",Female
+K-sparing diuretics,Female pattern hair loss/androgenetic alopecia,"L64.8, L64.9, L65.8",Female

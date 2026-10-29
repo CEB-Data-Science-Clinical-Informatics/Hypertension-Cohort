@@ -1,39 +1,33 @@
 # Hypertension Data Warehouse
 
 - **Author:** Htun Teza
-- **Date:** 1 August 2025
+- **Date:** 29 October 2026
 
 ## Contents
-- [Hypertension Data Warehouse](#hypertension-data-warehouse)
-  - [2010-2024/12 (15 years)](#2010-202412-15-years)
-    - [Data Flow](#data-flow)
-    - [Entity Relationship Diagram](#entity-relationship-diagram)
-    - [Variables](#variables)
+- [Hypertension Data Warehouse](#hypertension-data-warehouse-1)
+  - [2010-2026/06 (16.5 years)](#2010-202606-165-years)
 - [Hypertension cohort update](#hypertension-cohort-update)
   - [Data Warehouse Timeline](#data-warehouse-timeline)
-    - [ETL timeline](#etl-timeline)
   - [Update Summary](#update-summary)
-    - [Cohort Update](#cohort-update)
-    - [Hypertension Cohort (15 years)](#hypertension-cohort-15-years)
 - [Supplementary](#supplementary)
-    - [Codes](#codes)
-    - [Maplist](#codes)
-    - [Data Request](#data-request) 
+  - [Code](#code)
+  - [Maplist](#maplist)
+  - [Data Request](#data-request)
 - [Usage](#usage)
-    - [Publications](#publications)
-    - [Conferences](#conferences)
-    - [Competitions](#competitions)
+  - [Publications](#publications)
+  - [Conferences](#conferences)
+  - [Competitions](#competitions)
 ---
 
 ## Hypertension Data Warehouse
 
-### 2010-2024/12 (15 years)
+### 2010-2026/06 (16.5 years)
 
-Documentation on cohort identification procedure can be found [here](cohort_identification.md). This process has been peer-reviewed and published [here](https://doi.org/10.3389/fcvm.2023.1170010).
+Documentation on cohort identification procedure can be found [here](cohort_identification.md). The procedure has been peer-reviewed and published [here](https://doi.org/10.3389/fcvm.2023.1170010). From the 2010-2026/06 cohort, the cohort is rebuilt from a clean slate with the v2 criteria. The changes are listed at the top of the [cohort identification documentation](cohort_identification.md).
 
 #### Data Flow
 
-![Data Flow](images/dataflow/2010_202412.png)
+![Data Flow](images/dataflow/260630/flowchart-260630-rama.png)
 
 #### Entity Relationship Diagram
 
@@ -52,31 +46,61 @@ The complete list of variables can be found [here](https://docs.google.com/sprea
 
 #### ETL timeline
 
-With our latest data extraction (ETL) in December 2024,
+With our latest data extraction (ETL) in June 2026,
 
-- New case update to December 2024 (Bi-Annually)
-- Follow up visits update to December 2024 (Quarterly).
+- New case update to June 2026 (Bi-Annually)
+- Follow up visits update to June 2026 (Quarterly).
+
+The next update covers July to December 2026.
 
 ### Update Summary
 
-#### Cohort Update
+#### Hypertension Cohort (16.5 years)
 
-![Cohort Update](images/dataflow/update_202412.png)
+| Step | *n* |
+|:---|--:|
+| ICD-10 hypertension diagnosis (ICD only + both) | 260,315 |
+| Medication only | 80,126 |
+| Medication only, other indication found (excluded) | 5,397 |
+| Inferred diagnosis | 74,729 |
+| Hypertension patients | 335,044 |
+| Age below 18 at index (excluded) | 6,687 |
+| **Cohort 1 (adult)** | **328,357** |
+| Hypertension evidence in 2005-2009 (prevalent, excluded) | 69,710 |
+| **Cohort 2 (incident)** | **258,647** |
 
-#### Hypertension Cohort (15 years)
-
-![Hypertension Cohort](images/dataflow/subcohort_202412.png)
+The number of patients by year can be found [here](cohort_identification.md#cohort-distribution).
 
 ### Supplementary
 
-#### Codes
-The Python notebook for cohort identification can be found at in codes folder [here](codes/cohort_identification.ipynb).
+#### Code
+
+The code used in the CEB data warehouse can be found in the code folder. It runs with Python 3.10 and the packages in [requirements.txt](requirements.txt).
+
+|Type|Usage|Link|
+|---|---|---|
+|Settings|Period, dates, data folders and drug map for one update|[here](code/identification/update_config.py)|
+|Baseline|Builds the 2010-2026/06 cohort in one run (start here for a new center)|[here](code/identification/cohort_clean_slate.py)|
+|Stage 1|Loosely defined criteria: candidate list for a new period|[here](code/identification/cohort_loose.py)|
+|Stage 2|Exactly defined criteria, full HT file and Cohort 1|[here](code/identification/cohort.py)|
+|Stage 3|2005-2009 lookback and Cohort 2|[here](code/identification/cohort2.py)|
+|Check|Read-only check of the data folders before stages 2 and 3|[here](code/preflight.py)|
+
+The steps for an update can be found [here](cohort_identification.md#updating-the-cohort). The 2010-2024/12 notebooks are in the [Archive](code/Archive) folder.
 
 > [!NOTE]  
 > As of March 5, 2024, the data preprocessing pipeline is updated to use [Polars](https://github.com/pola-rs/polars) instead of Pandas, due to its multi-thread processing prowess. 
 
 #### Maplist
-The Map list for medications and other indications can be found at in maplist folder [here](maplist/cohort_anti_HT.xlsx).
+
+The maplist of medication codes and other indications used for cohort identification can be found in the maplist folder.
+
+| Type | Usage | Link |
+| --- | --- | --- |
+| Medication (Intrahospital Code) | Cohort identification | [here](maplist/cohort/medication_map.csv) |
+| Other indications (ICD-10) | Exclusion criteria for medication-only patients | [here](maplist/cohort/other_indication_map.csv) |
+
+The 2010-2024/12 map is in the [Archive](maplist/Archive) folder.
 
 #### Data Request
 More details regarding this and other cohorts can be found [here](https://www.rama.mahidol.ac.th/ceb/CEBdatawarehouse/Data/HT) at CEB-RAMA-MU. Data request can be made on the same webpage.
