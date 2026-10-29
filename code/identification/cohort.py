@@ -67,6 +67,16 @@ def _normalize_code_expr(column: str) -> pl.Expr:
     )
 
 
+def _medication_code_expr(column: str) -> pl.Expr:
+    """Medication codes are matched exactly as delivered, never normalized.
+
+    Stripping characters could merge two codes that the hospital assigns to
+    different drug classes (for example "FUR#-N-" and "FUR+-N-").
+    """
+
+    return pl.col(column).cast(pl.String)
+
+
 def _date_expr(column: str) -> pl.Expr:
     text = pl.col(column).cast(pl.String).str.replace(r"\.0$", "")
     return pl.coalesce(
@@ -174,7 +184,7 @@ def _load_medication_maps(map_path: Path = MEDICATION_MAP) -> pl.DataFrame:
         raise ValueError(f"{map_path} must contain columns: {sorted(required)}")
     return (
         mapping.select(
-            _normalize_code_expr("ramadrugcode").alias("drug_code"),
+            _medication_code_expr("ramadrugcode").alias("drug_code"),
             pl.col("subclass").cast(pl.String).str.strip_chars().alias("drug_class"),
         )
         .drop_nulls()
@@ -228,7 +238,7 @@ def _standardize_med_file(file_path: Path) -> pl.DataFrame:
         .with_columns(
             pl.col("ENC_HN").cast(pl.String),
             _date_expr(date_column).alias("REC_DATE"),
-            _normalize_code_expr(code_column).alias("CODE"),
+            _medication_code_expr(code_column).alias("CODE"),
         )
         .select("ENC_HN", "REC_DATE", "CODE")
         .collect()
@@ -704,15 +714,23 @@ def _clean_code_column(column: str) -> pl.Expr:
     value = pl.col(column)
     missing = value.is_null() | value.is_in(MISSING_TOKENS)
     char_split = value.str.contains(LEGACY_CHAR_SPLIT)
-    # Normalized codes: no dots or dashes inside a code, same as the strict reader.
-    # Strip characters inside each value first, so "LOSL-T-" stays one code.
-    tokens = (
-        value.str.to_uppercase()
-        .str.replace_all(r"[^A-Z0-9',\[\] ]", "")
-        .str.extract_all(r"[A-Z0-9]+")
-        .list.unique()
-        .list.sort()
-    )
+    if column == "MED":
+        # Medication codes stay exactly as delivered: take each quoted value whole.
+        tokens = (
+            value.str.extract_all(r"'[^']+'")
+            .list.eval(pl.element().str.strip_chars("'"))
+            .list.unique()
+            .list.sort()
+        )
+    else:
+        # Diagnosis codes are normalized: no dots or dashes, same as the strict reader.
+        tokens = (
+            value.str.to_uppercase()
+            .str.replace_all(r"[^A-Z0-9',\[\] ]", "")
+            .str.extract_all(r"[A-Z0-9]+")
+            .list.unique()
+            .list.sort()
+        )
     as_list = pl.concat_str([pl.lit("['"), tokens.list.join("', '"), pl.lit("']")])
     rejoined = pl.concat_str([pl.lit("['"), tokens.list.join(""), pl.lit("']")])
     return (
@@ -908,7 +926,7 @@ def build_append_lines(append_stats: dict[str, int], cohort1_stats: dict[str, in
         row("   Appended", a["appended"]),
         row(f"Full file {FULL_STEM} (.csv, .parquet.gzip)", a["full"])
         + f"  [unique ENC_HN: {a['full_unique_hn']:,}]",
-        "Notes: new rows use normalized codes (no dots/dashes), null instead of 'None'/'NaT',",
+        "Notes: new rows use normalized ICD codes (no dots/dashes) and medication codes as delivered, null instead of 'None'/'NaT',",
         "       flag icd/med/both = criteria met on the index date.",
         "",
         "Cohort 1 (full file, age >= 18 at index date)",

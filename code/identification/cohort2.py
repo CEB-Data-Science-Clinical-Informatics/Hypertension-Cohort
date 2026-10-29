@@ -112,6 +112,16 @@ def _normalize_code_expr(column: str) -> pl.Expr:
     )
 
 
+def _medication_code_expr(column: str) -> pl.Expr:
+    """Medication codes are matched exactly as delivered, never normalized.
+
+    Stripping characters could merge two codes that the hospital assigns to
+    different drug classes (for example "FUR#-N-" and "FUR+-N-").
+    """
+
+    return pl.col(column).cast(pl.String)
+
+
 def _date_expr(column: str, dtype: pl.DataType) -> pl.Expr:
     """Parse a date column that may already be a temporal type or a string."""
 
@@ -221,7 +231,7 @@ def load_medication_codes(map_path: Path = MEDICATION_MAP) -> pl.DataFrame:
         raise ValueError(f"{map_path} must contain columns: {sorted(required)}")
     return (
         mapping.select(
-            _normalize_code_expr("ramadrugcode").alias("CODE"),
+            _medication_code_expr("ramadrugcode").alias("CODE"),
             pl.col("subclass").cast(pl.String).str.strip_chars().alias("drug_class"),
         )
         .drop_nulls()
@@ -396,7 +406,7 @@ def read_lookback_medication(
         base = lazy.select(
             pl.col("ENC_HN").cast(pl.String),
             _date_expr(BILL_DATE_COLUMN, schema[BILL_DATE_COLUMN]).alias("EVENT_DATE"),
-            _normalize_code_expr(BILL_CODE_COLUMN).alias("CODE"),
+            _medication_code_expr(BILL_CODE_COLUMN).alias("CODE"),
         )
         if cohort_ids is not None:
             base = base.filter(pl.col("ENC_HN").is_in(cohort_ids.implode()))

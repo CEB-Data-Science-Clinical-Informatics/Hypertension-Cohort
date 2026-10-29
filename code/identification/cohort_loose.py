@@ -198,11 +198,8 @@ def load_medication_classes(map_path: Path) -> dict[str, str]:
         .unique("ramadrugcode", keep="first")
         .iter_rows()
     )
-    return {
-        _normalize_code_value(code): str(medication_class).strip()
-        for code, medication_class in pairs
-        if _normalize_code_value(code)
-    }
+    # Medication codes are matched exactly as delivered, never normalized.
+    return {str(code): str(medication_class).strip() for code, medication_class in pairs if str(code)}
 
 
 def _medication_columns(schema: set[str], source_population: str) -> tuple[str, str] | None:
@@ -250,7 +247,7 @@ def read_medication_events(
             .with_columns(
                 pl.col("ENC_HN").cast(pl.String),
                 _date_expr(date_column).alias("event_date"),
-                _normalize_code_expr(code_column).alias("medication_code"),
+                pl.col(code_column).cast(pl.String).alias("medication_code"),
             )
             .filter(
                 pl.col("ENC_HN").is_not_null()

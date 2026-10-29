@@ -33,7 +33,7 @@ This cohort was retrieved from the Ramathibodi Hospital Information System cover
 
 Diagnoses come from clinic and in-patient visits. Medication records come from the prescription orders (order and CPOE tables) and, for new cases and the lookback, from the drug bill. All dates are recorded at the day level.
 
-Before matching, every code is cast to text, changed to uppercase, and stripped of all characters except letters and digits. For example, `I50.1` becomes `I501` and `LOSL-T-` becomes `LOSLT`. Rows without a patient identifier are dropped.
+Before matching, every diagnosis code is cast to text, changed to uppercase, and stripped of all characters except letters and digits. For example, `I50.1` becomes `I501`. Medication codes are **not** changed: they must match the drug map exactly, as delivered (`LOSL-T-` stays `LOSL-T-`). The hospital can give two codes that differ only in symbols, such as `FUR#-N-` and `FUR+-N-`, to different products, so stripping could merge them. Rows without a patient identifier are dropped.
 
 ---
 
@@ -194,21 +194,21 @@ This table is the primary table for cohort curation (full HT file). It has one r
 | `ICD_DATE` | First hypertension diagnosis date, or blank |
 | `ICD` | Hypertension diagnosis codes, for example `['I10']`, or blank |
 | `MED_DATE` | First antihypertensive prescription date, or blank |
-| `MED` | Antihypertensive medication codes, for example `['AMLP1T']`, or blank |
+| `MED` | Antihypertensive medication codes as delivered, for example `['AMLP1T-']`, or blank |
 | `D001KEY` | Index date |
 | `flag` | `icd`, `med` or `both` |
 | `index_date_all` | Earliest hypertension evidence including the 2005-2009 lookback (`_index_all` copy only) |
 
-Each row has at least one of `ICD` or `MED`. Codes are normalized, sorted and unique. A missing value is blank in the CSV and null in the parquet file.
+Each row has at least one of `ICD` or `MED`. Diagnosis codes are normalized. Medication codes are kept as delivered. Each list is sorted and unique. A missing value is blank in the CSV and null in the parquet file.
 
 #### Example Data Table
 
 | HN | ICD_DATE | ICD | MED_DATE | MED | D001KEY | flag | index_date_all |
 |-|-|-|-|-|-|-|-|
-| 001 | 2015-03-02 | ['I10'] | 2015-03-02 | ['AMLP1T'] | 2015-03-02 | both | 2015-03-02 |
+| 001 | 2015-03-02 | ['I10'] | 2015-03-02 | ['AMLP1T-'] | 2015-03-02 | both | 2015-03-02 |
 | 002 | 2018-07-11 | ['I10'] | — | — | 2018-07-11 | icd | 2018-07-11 |
-| 003 | — | — | 2012-05-20 | ['LOSLT'] | 2012-05-20 | med | 2012-05-20 |
-| 004 | 2020-01-15 | ['I10', 'I132'] | 2019-11-04 | ['AMLP1T', 'LOSLT'] | 2019-11-04 | med | 2019-11-04 |
+| 003 | — | — | 2012-05-20 | ['LOSL-T-'] | 2012-05-20 | med | 2012-05-20 |
+| 004 | 2020-01-15 | ['I10', 'I132'] | 2019-11-04 | ['AMLP1T-', 'LOSL-T-'] | 2019-11-04 | med | 2019-11-04 |
 | 005 | 2011-02-10 | ['I10'] | — | — | 2011-02-10 | icd | 2007-06-01 |
 
 - HN 003 is an inferred diagnosis: medication only, with no earlier other indication.
